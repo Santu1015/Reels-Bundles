@@ -123,22 +123,12 @@ footer {
 </button>
 
 <script>
-async function payNow() {
-  try {
-    const response = await fetch("https://payments.cashfree.com/forms?code=Reels-Bundles", {
-      method: "POST"
-    });
-
-    const data = await response.json();
-
-    // Redirect to Cashfree Checkout
-    window.location.href = data.payment_link;
-
+function payNow() {
+  window.location.href = "https://payments.cashfree.com/forms?code=Reels-Bundles";
   } catch (error) {
     alert("Payment Error. Try Again.");
     console.error(error);
   }
-}
 </script>
 </div>
 </section>
@@ -199,21 +189,11 @@ async function payNow() {
 </button>
 
 <script>
-async function payNow() {
-  try {
-    const response = await fetch("https://payments.cashfree.com/forms?code=Reels-Bundles", {
-      method: "POST"
-    });
-
-    const data = await response.json();
-
-    // Redirect to Cashfree Checkout
-    window.location.href = data.payment_link;
-
+function payNow() {
+  window.location.href = "https://payments.cashfree.com/forms?code=Reels-Bundles";
   } catch (error) {
     alert("Payment Error. Try Again.");
     console.error(error);
-  }
 }
 </script>
 </div>
@@ -254,6 +234,7 @@ Get Instant Access for ₹99
 </body>
 
 </html>
+
 
 
 
