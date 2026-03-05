@@ -2,100 +2,150 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Your Download</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Your Product</title>
 
 <style>
 
-body{
+*{
 margin:0;
-font-family:Arial, Helvetica, sans-serif;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+body{
 height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-background:linear-gradient(135deg,#667eea,#764ba2);
+background:linear-gradient(270deg,#6a11cb,#2575fc,#ff6a00);
+background-size:600% 600%;
+animation:bgAnimation 12s infinite alternate;
 }
 
-.container{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(10px);
+@keyframes bgAnimation{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.card{
+width:380px;
 padding:40px;
 border-radius:20px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
 text-align:center;
-width:350px;
 color:white;
-box-shadow:0 10px 40px rgba(0,0,0,0.3);
-animation:fadeIn 1s ease;
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+animation:fade 1s ease;
 }
 
-.container h1{
+@keyframes fade{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+.icon{
+font-size:70px;
 margin-bottom:10px;
-font-size:28px;
+animation:float 3s ease-in-out infinite;
 }
 
-.container p{
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+}
+
+h1{
+margin-bottom:10px;
+}
+
+p{
 font-size:14px;
+margin-bottom:25px;
 opacity:0.9;
-margin-bottom:30px;
 }
 
-.download-btn{
+.btn{
 display:inline-block;
-padding:14px 28px;
-border-radius:50px;
-background:white;
-color:#764ba2;
-font-weight:bold;
+padding:15px 35px;
+border-radius:40px;
 text-decoration:none;
+font-weight:bold;
+color:#2575fc;
+background:white;
 transition:0.3s;
 box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
-.download-btn:hover{
+.btn:hover{
 transform:scale(1.1);
-box-shadow:0 8px 25px rgba(0,0,0,0.5);
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
 }
 
-.icon{
-font-size:60px;
-margin-bottom:15px;
+.timer{
+margin-top:20px;
+font-size:13px;
+opacity:0.8;
 }
 
 .footer{
-margin-top:25px;
+margin-top:30px;
 font-size:12px;
-opacity:0.7;
-}
-
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(20px);}
-to{opacity:1; transform:translateY(0);}
+opacity:0.6;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="container">
+<div class="card">
 
-<div class="icon">📥</div>
+<div class="icon">⬇️</div>
 
-<h1>Your File is Ready</h1>
+<h1>Download Ready</h1>
 
-<p>Thank you for your purchase.<br>
-Click the button below to download your product.</p>
+<p>Your product is ready to download.<br>
+Click below or wait for automatic download.</p>
 
-<a href="YOUR-DOWNLOAD-LINK-HERE" class="download-btn">
+<a href="https://drive.google.com/drive/folders/16MkH_SDezcEdmOQ_F2nWWfr1LgLFcZds?usp=sharing" class="btn" id="downloadBtn">
 Download Now
 </a>
 
+<div class="timer">
+Auto download in <span id="count">5</span> seconds
+</div>
+
 <div class="footer">
-Secure Download • Instant Access
+Secure Payment ✔ Instant Access
 </div>
 
 </div>
+
+<script>
+
+let time = 5;
+let count = document.getElementById("count");
+
+let timer = setInterval(function(){
+
+time--;
+count.innerText = time;
+
+if(time == 0){
+
+clearInterval(timer);
+window.location.href="https://drive.google.com/drive/folders/16MkH_SDezcEdmOQ_F2nWWfr1LgLFcZds?usp=sharing";
+
+}
+
+},1000);
+
+</script>
 
 </body>
 </html>
