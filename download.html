@@ -110,13 +110,25 @@ const params = new URLSearchParams(window.location.search);
 const token = params.get("token");
 
 if(token){
+
 document.getElementById("downloadBtn").href =
 "https://secure-download-server-a77v.onrender.com/download?token=" + token;
+
+document.getElementById("downloadBtn").style.display = "inline-block";
+
+document.getElementById("message").innerText =
+"Click the button below to download your file.";
+
 }else{
-document.getElementById("downloadBtn").innerText = "Invalid Download Link";
+
+document.getElementById("message").innerText =
+"Invalid download link.";
+
 }
 
 </script>
 
+
 </body>
 </html>
+
