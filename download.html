@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Downloading...</title>
+<title>Download</title>
 </head>
 
 <body>
 
-<h2>Your download is starting...</h2>
+<h2>Your download will start automatically...</h2>
 
 <script>
 
-const urlParams = new URLSearchParams(window.location.search);
-const token = urlParams.get("token");
+const params = new URLSearchParams(window.location.search);
+const token = params.get("token");
 
 if(token){
 window.location.href =
 "https://secure-download-server-a77v.onrender.com/download?token=" + token;
+}else{
+document.body.innerHTML = "Token missing";
 }
 
 </script>
