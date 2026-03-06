@@ -1,51 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-<title>Enter Access Code</title>
+
+<meta charset="UTF-8">
+<title>Vault Access</title>
 
 <style>
 
-body{
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial;
-background:#020617;
-color:white;
+}
+
+body{
+
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
+
+background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
+
+color:white;
+
 }
 
-.box{
-background:#1e293b;
+.container{
+
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+
 padding:40px;
-border-radius:12px;
+
+border-radius:15px;
+
+width:360px;
+
 text-align:center;
-width:350px;
+
+box-shadow:0 0 30px rgba(0,0,0,0.6);
+
+}
+
+h1{
+
+margin-bottom:10px;
+font-size:26px;
+
+}
+
+.sub{
+
+font-size:14px;
+color:#94a3b8;
+margin-bottom:20px;
+
 }
 
 input{
-width:90%;
-padding:10px;
+
+width:100%;
+
+padding:12px;
+
 border:none;
+
 border-radius:8px;
+
 margin-top:10px;
+
+background:#020617;
+
+color:white;
+
+outline:none;
+
 }
 
 button{
+
+width:100%;
+
+padding:12px;
+
 margin-top:15px;
-padding:10px 20px;
+
 border:none;
+
 border-radius:8px;
+
 background:#2563eb;
+
 color:white;
+
+font-size:16px;
+
 cursor:pointer;
+
+transition:0.3s;
+
+}
+
+button:hover{
+
+background:#1d4ed8;
+
 }
 
 .note{
+
+margin-top:18px;
+
 font-size:13px;
-margin-top:15px;
+
 color:#94a3b8;
+
 }
 
 </style>
@@ -54,19 +126,21 @@ color:#94a3b8;
 
 <body>
 
-<div class="box">
+<div class="container">
 
-<h2>Enter Your Access Code</h2>
+<h1>🔐 Vault Access</h1>
 
-<input type="text" id="code" placeholder="Enter Access Code">
+<p class="sub">Enter your unique access code</p>
 
-<br>
+<input type="text" id="code" placeholder="Enter Code">
 
 <button onclick="verify()">Open Vault</button>
 
 <p class="note">
+
 📩 Your access code will be sent to your email within 10 minutes.<br>
 Please do not exit this page.
+
 </p>
 
 </div>
@@ -76,7 +150,7 @@ Please do not exit this page.
 const validCodes=[
 "Reels123",
 "Reels456",
-"Reels789"
+"Reels678"
 ]
 
 function verify(){
@@ -91,7 +165,7 @@ window.location.href="vault.html"
 
 }else{
 
-alert("Invalid Code")
+alert("Invalid Access Code")
 
 }
 
@@ -100,4 +174,5 @@ alert("Invalid Code")
 </script>
 
 </body>
+
 </html>
