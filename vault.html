@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>PDF Vault</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#020617;
+color:white;
+text-align:center;
+}
+
+#search{
+padding:10px;
+width:60%;
+border-radius:8px;
+border:none;
+margin:20px;
+}
+
+.file{
+background:#1e293b;
+padding:15px;
+margin:10px;
+border-radius:10px;
+display:flex;
+justify-content:space-between;
+width:70%;
+margin-left:auto;
+margin-right:auto;
+}
+
+a{
+color:#38bdf8;
+text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>📚 Your PDF Vault</h1>
+
+<input type="text" id="search" placeholder="Search PDF">
+
+<div id="pdfList"></div>
+
+<script>
+
+const files = [
+"product.pdf"
+]
+
+const container=document.getElementById("pdfList")
+
+function showFiles(list){
+
+container.innerHTML=""
+
+list.forEach(file=>{
+
+container.innerHTML+=`
+<div class="file">
+
+<span>${file}</span>
+
+<div>
+<a href="pdf/${file}" target="_blank">View</a>
+|
+<a href="pdf/${file}" download>Download</a>
+</div>
+
+</div>
+`
+
+})
+
+}
+
+showFiles(files)
+
+document.getElementById("search").addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase()
+
+let filtered=files.filter(file=>file.toLowerCase().includes(value))
+
+showFiles(filtered)
+
+})
+
+</script>
+
+</body>
+</html>
