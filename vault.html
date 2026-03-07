@@ -1,3 +1,11 @@
+<script>
+var url = new URL(window.location.href);
+var access = url.searchParams.get("access");
+
+if(access !== "yes"){
+window.location.href="error.html";
+}
+</script>
 <!DOCTYPE html>
 <html>
 
