@@ -3,6 +3,16 @@ if(sessionStorage.getItem("reelsAccess") !== "yes"){
 document.location.href="error.html";
 }
 </script>
+<script>
+
+var url = new URL(window.location.href);
+var access = url.searchParams.get("access");
+
+if(access !== "yes"){
+document.body.innerHTML="<h1 style='text-align:center;margin-top:150px;font-family:sans-serif'>404<br>Reels Bundles Access Denied</h1>";
+}
+
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -157,6 +167,7 @@ window.location.href="vault.html";
   
 </body>
 </html>
+
 
 
 
