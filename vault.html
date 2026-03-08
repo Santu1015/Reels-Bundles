@@ -1,9 +1,4 @@
 <script>
-if(sessionStorage.getItem("reelsAccess") !== "granted"){
-window.location.href="error.html";
-}
-</script>
-<script>
 var url = new URL(window.location.href);
 var access = url.searchParams.get("access");
 
