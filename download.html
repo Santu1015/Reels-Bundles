@@ -1,13 +1,14 @@
 <script>
-if(sessionStorage.getItem("reelsAccess") !== "yes"){
-document.location.href="error.html";
-}
-</script>
-<script>
 if(sessionStorage.getItem("reelsAccess") !== "granted"){
 window.location.href="error.html";
 }
 </script>
+<script>
+if(sessionStorage.getItem("reelsAccess") !== "yes"){
+document.location.href="error.html";
+}
+</script>
+
 <script>
 
 var url = new URL(window.location.href);
@@ -172,6 +173,7 @@ window.location.href="vault.html?access=yes";
   
 </body>
 </html>
+
 
 
 
