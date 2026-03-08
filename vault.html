@@ -10,6 +10,11 @@ window.location.href="error.html";
 <html>
 
 <head>
+<script>
+if(localStorage.getItem("vaultAccess") !== "granted"){
+window.location.href="error.html";
+}
+</script>
 
 
 <title>Reels Bundles Vault</title>
@@ -102,6 +107,8 @@ showFiles(filtered)
 })
 
 </script>
-
+<script>
+localStorage.removeItem("vaultAccess");
+</script>
 </body>
 </html>
