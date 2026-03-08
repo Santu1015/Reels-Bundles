@@ -11,9 +11,17 @@ window.location.href="error.html";
 
 <head>
 <script>
+
+// access check
 if(localStorage.getItem("vaultAccess") !== "granted"){
-window.location.href="error.html";
+location.href="error.html";
 }
+
+// direct link block
+if(!document.referrer.includes("download.html")){
+location.href="error.html";
+}
+
 </script>
 
 
@@ -109,6 +117,46 @@ showFiles(filtered)
 </script>
 <script>
 localStorage.removeItem("vaultAccess");
+</script>
+<div id="timer" style="
+position:fixed;
+top:10px;
+right:20px;
+background:black;
+color:#00ffff;
+padding:8px 14px;
+border-radius:8px;
+font-family:Arial;
+font-size:14px;
+box-shadow:0 0 10px #00ffff;
+z-index:9999;">
+Access Time: 10:00
+</div>
+
+<script>
+
+let time = 600;
+
+const timer = setInterval(function(){
+
+let minutes = Math.floor(time/60);
+let seconds = time%60;
+
+seconds = seconds < 10 ? "0"+seconds : seconds;
+
+document.getElementById("timer").innerText =
+"Access Time: "+minutes+":"+seconds;
+
+time--;
+
+if(time < 0){
+clearInterval(timer);
+localStorage.removeItem("vaultAccess");
+location.href="error.html";
+}
+
+},1000);
+
 </script>
 </body>
 </html>
