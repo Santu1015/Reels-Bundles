@@ -166,10 +166,46 @@ window.location.href="vault.html?access=yes";
 
 </script>
 
+<footer>
+Copyright © Reels Bundles
+</footer>
 
+<script>
+
+// CTRL+U BLOCK
+document.addEventListener('keydown', function(e) {
+
+if (e.ctrlKey && e.key.toLowerCase() === 'u') {
+e.preventDefault();
+alert("⚠ Source code view is disabled!");
+return false;
+}
+
+if (e.key === "F12") {
+e.preventDefault();
+return false;
+}
+
+if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') {
+e.preventDefault();
+return false;
+}
+
+if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'j') {
+e.preventDefault();
+return false;
+}
+
+});
+
+</script>
+
+</body>
+</html>
   
 </body>
 </html>
+
 
 
 
