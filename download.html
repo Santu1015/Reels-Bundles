@@ -1,147 +1,182 @@
-<script>
-
-var url = new URL(window.location.href);
-var access = url.searchParams.get("access");
-
-if(access !== "yes"){
-document.body.innerHTML="<h1 style='text-align:center;margin-top:150px;font-family:sans-serif'>404<br>Reels Bundles Access Denied</h1>";
-}
-
-</script>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Download Your Product</title>
+
+<title>Download Ready</title>
+
 <script>
 localStorage.setItem("downloadAccess","yes");
-
-  if(localStorage.getItem("downloadAccess") !== "yes"){
-document.location.href="error.html";
-}
-
 </script>
+
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Segoe UI;
+font-family:Segoe UI, sans-serif;
 }
 
 body{
+
 min-height:100vh;
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
 padding:20px;
+
 background:linear-gradient(270deg,#6a11cb,#2575fc,#ff6a00);
 background-size:600% 600%;
-animation:bgAnimation 12s infinite alternate;
+animation:bg 12s infinite alternate;
+
 }
-@keyframes bgAnimation{
+
+@keyframes bg{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
 }
 
 .card{
-width:90%;
+
+width:100%;
 max-width:420px;
-padding:40px;
-border-radius:20px;
+padding:45px 35px;
+border-radius:22px;
+
 background:rgba(255,255,255,0.15);
 backdrop-filter:blur(15px);
+
 text-align:center;
 color:white;
-box-shadow:0 10px 40px rgba(0,0,0,0.4);
+
+box-shadow:0 15px 50px rgba(0,0,0,0.5);
+
 animation:fade 1s ease;
+
 }
 
 @keyframes fade{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
 }
 
 .icon{
+
 font-size:70px;
-margin-bottom:10px;
+margin-bottom:15px;
 animation:float 3s ease-in-out infinite;
+
 }
 
 @keyframes float{
 0%,100%{transform:translateY(0)}
 50%{transform:translateY(-10px)}
 }
-@media (max-width:600px){
-
-.card{
-width:95%;
-padding:30px 20px;
-}
 
 h1{
-font-size:22px;
-}
 
-.icon{
-font-size:60px;
-}
-
-.btn{
-width:100%;
-padding:14px;
-}
-
-}
-
-h1{
 margin-bottom:10px;
+font-size:28px;
+
 }
 
 p{
-font-size:14px;
+
+font-size:15px;
 margin-bottom:25px;
 opacity:0.9;
+
 }
 
 .btn{
+
 display:inline-block;
-padding:15px 35px;
+padding:15px 40px;
+
 border-radius:40px;
 text-decoration:none;
+
 font-weight:bold;
-color:#2575fc;
-background:white;
-transition:0.3s;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
+
+color:white;
+background:linear-gradient(45deg,#ff512f,#dd2476);
+
+transition:.3s;
+
+box-shadow:0 8px 20px rgba(0,0,0,0.4);
+
 }
 
 .btn:hover{
-transform:scale(1.1);
-box-shadow:0 10px 25px rgba(0,0,0,0.5);
+
+transform:scale(1.08);
+box-shadow:0 15px 30px rgba(0,0,0,0.5);
+
 }
 
 .timer{
+
 margin-top:20px;
-font-size:13px;
-opacity:0.8;
-}
-.footer{
-margin-top:30px;
-font-size:12px;
-opacity:0.6;
-}
-.site-footer{
-text-align:center;
-color:white;
 font-size:14px;
-margin-top:auto;
-padding:20px 0;
+opacity:0.8;
+
 }
+
+.footer{
+
+margin-top:auto;
+text-align:center;
+font-size:13px;
+color:white;
+opacity:0.7;
+padding:20px;
+
+}
+
+/* MOBILE */
+
+@media (max-width:600px){
+
+.card{
+
+padding:35px 22px;
+
+}
+
+.icon{
+
+font-size:55px;
+
+}
+
+h1{
+
+font-size:22px;
+
+}
+
+.btn{
+
+width:100%;
+
+}
+
+}
+
 </style>
 
 </head>
@@ -156,8 +191,8 @@ padding:20px 0;
 
 <p>Your product is ready to download.<br>
 Click below or wait for automatic download.</p>
-  
-<a href="warning.html?access=yes" class="btn" id="downloadBtn">
+
+<a href="warning.html?access=yes" class="btn">
 Download Now
 </a>
 
@@ -165,23 +200,23 @@ Download Now
 Auto download in <span id="count">10</span> seconds
 </div>
 
-<div class="footer">
-Secure Payment ✔ Instant Access
 </div>
 
+<div class="footer">
+© 2026 Reels Bundles • All Rights Reserved
 </div>
 
 <script>
 
-let time = 10;
-let count = document.getElementById("count");
+let time=10;
 
-let timer = setInterval(function(){
+let timer=setInterval(function(){
 
 time--;
-count.innerText = time;
 
-if(time == 0){
+document.getElementById("count").innerText=time;
+
+if(time==0){
 
 clearInterval(timer);
 window.location.href="warning.html?access=yes";
@@ -192,58 +227,5 @@ window.location.href="warning.html?access=yes";
 
 </script>
 
-<script>
-
-// CTRL+U BLOCK
-document.addEventListener('keydown', function(e) {
-
-if (e.ctrlKey && e.key.toLowerCase() === 'u') {
-e.preventDefault();
-alert("⚠ Source code view is disabled!");
-return false;
-}
-
-if (e.key === "F12") {
-e.preventDefault();
-return false;
-}
-
-if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') {
-e.preventDefault();
-return false;
-}
-
-if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'j') {
-e.preventDefault();
-return false;
-}
-
-});
-
-</script>
-
-<footer class="site-footer">
-© 2026 Reels Bundles • All Rights Reserved
-</footer>
-  
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
