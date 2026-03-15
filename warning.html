@@ -3,13 +3,6 @@
 <head>
 <script>
 
-if(localStorage.getItem("downloadAccess") !== "yes"){
-location.href="error.html";
-}
-
-</script>
-<script>
-
 var url = new URL(window.location.href);
 var access = url.searchParams.get("access");
 
@@ -23,13 +16,9 @@ document.body.innerHTML="<h1 style='text-align:center;margin-top:150px;font-fami
 <title>Reels Bundles Vault Warning</title>
 <script>
 
-// DIRECT ACCESS BLOCK
 if(localStorage.getItem("downloadAccess") !== "yes"){
 location.href="error.html";
 }
-
-// VAULT ACCESS GRANT
-localStorage.setItem("vaultAccess","granted");
 
 </script>
 
