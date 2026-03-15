@@ -1,15 +1,5 @@
 <script>
 
-localStorage.setItem("downloadAccess","yes");
-
-if(localStorage.getItem("downloadAccess") !== "yes"){
-document.location.href="error.html";
-}
-
-</script>
-
-<script>
-
 var url = new URL(window.location.href);
 var access = url.searchParams.get("access");
 
@@ -26,7 +16,12 @@ document.body.innerHTML="<h1 style='text-align:center;margin-top:150px;font-fami
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Download Your Product</title>
 <script>
-localStorage.setItem("downloadAccess","granted");
+localStorage.setItem("downloadAccess","yes");
+
+  if(localStorage.getItem("downloadAccess") !== "yes"){
+document.location.href="error.html";
+}
+
 </script>
 <style>
 *{
