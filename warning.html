@@ -24,7 +24,7 @@ document.body.innerHTML="<h1 style='text-align:center;margin-top:150px;font-fami
 <script>
 
 // DIRECT ACCESS BLOCK
-if(sessionStorage.getItem("downloadAccess") !== "yes"){
+if(localStorage.getItem("downloadAccess") !== "yes"){
 location.href="error.html";
 }
 
