@@ -3,6 +3,13 @@
 <head>
 <script>
 
+if(localStorage.getItem("downloadAccess") !== "yes"){
+location.href="error.html";
+}
+
+</script>
+<script>
+
 var url = new URL(window.location.href);
 var access = url.searchParams.get("access");
 
@@ -14,14 +21,6 @@ document.body.innerHTML="<h1 style='text-align:center;margin-top:150px;font-fami
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reels Bundles Vault Warning</title>
-<script>
-
-if(localStorage.getItem("downloadAccess") !== "yes"){
-location.href="error.html";
-}
-
-</script>
-
 <style>
 
 *{
