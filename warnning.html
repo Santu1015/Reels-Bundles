@@ -252,8 +252,20 @@ if(e.ctrlKey && e.keyCode==85){return false;}
 if(e.ctrlKey && e.keyCode==83){return false;}
 
 }
+// SECURITY
+
+document.addEventListener("contextmenu",e=>e.preventDefault());
+
+document.addEventListener("keydown",function(e){
+
+if(e.key==="F12") e.preventDefault();
+
+if(e.ctrlKey && e.key==="u") e.preventDefault();
+
+if(e.ctrlKey && e.shiftKey && e.key==="i") e.preventDefault();
+
+});
 
 </script>
-
 </body>
 </html>
